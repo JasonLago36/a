@@ -1,13 +1,13 @@
 import { CHECKOUT_REQUEST, CHECKOUT_POST_SUCCESS, CHECKOUT_POST_FAILURE, CheckoutActionTypes } from './action-type';
 
 interface CheckoutState {
-    loading: boolean;
     error: string | null;
+    loading: boolean;
 }
 
 const initialState: CheckoutState = {
-    loading: false,
     error: null,
+    loading: false,
 };
 
 const checkoutReducer = (state = initialState, action: CheckoutActionTypes): CheckoutState => {
@@ -15,20 +15,20 @@ const checkoutReducer = (state = initialState, action: CheckoutActionTypes): Che
         case CHECKOUT_REQUEST:
             return {
                 ...state,
-                loading: true,
                 error: null,
+                loading: true,
             };
         case CHECKOUT_POST_SUCCESS:
             return {
                 ...state,
-                loading: false,
                 error: null,
+                loading: false,
             };
         case CHECKOUT_POST_FAILURE:
             return {
                 ...state,
-                loading: false,
                 error: action.error,
+                loading: false,
             };
         default:
             return state;

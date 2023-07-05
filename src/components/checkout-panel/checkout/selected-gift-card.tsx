@@ -22,7 +22,12 @@ const selectedGiftCard: React.FC = (): React.ReactElement => {
     const returnOfferCost = () => {
         if (giftcard) {
             return giftcard.map((offerItem) => (
-                <div role="button" onClick={() => handleRedemptionAmount(offerItem)} key={offerItem.checkout_value_id}>
+                <div
+                    tabIndex={0}
+                    role="button"
+                    onClick={() => handleRedemptionAmount(offerItem)}
+                    key={offerItem.checkout_value_id}
+                >
                     <PrizeOutSelectedRedemptionButton
                         id={offerItem.checkout_value_id}
                         amount={USDollar.format(offerItem.cost_in_cents / 100)}
